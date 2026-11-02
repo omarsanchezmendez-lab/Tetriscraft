@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minecraft Tetris</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-dimension="overworld">
+  <div class="sky sky-one"></div><div class="sky sky-two"></div>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon">▦</span><div><h1>MINECRAFT <b>TETRIS</b></h1><p>Un viaje por las tres dimensiones</p></div></div>
+      <div class="dimension-pill"><span class="portal-dot"></span><span id="dimensionName">OVERWORLD</span></div>
+    </header>
+
+    <section class="game-layout">
+      <aside class="side-panel left-panel">
+        <div class="panel-card score-card"><span class="eyebrow">PUNTUACIÓN</span><strong id="score">0</strong><div class="best-line">Récord: <span id="best">0</span></div></div>
+        <div class="panel-card"><span class="eyebrow">NIVEL</span><strong id="level">1</strong><div class="progress-track"><div id="progress" class="progress-fill"></div></div><small id="progressText">0 / 500 pts para la siguiente dimensión</small></div>
+        <div class="panel-card next-card"><span class="eyebrow">SIGUIENTE BLOQUE</span><canvas id="nextCanvas" width="132" height="112"></canvas></div>
+        <div class="panel-card controls-card"><span class="eyebrow">CONTROLES</span><p><kbd>←</kbd> <kbd>→</kbd> Mover</p><p><kbd>↑</kbd> Girar</p><p><kbd>↓</kbd> Bajar</p><p><kbd>Espacio</kbd> Caída rápida</p><p><kbd>P</kbd> Pausar</p></div>
+      </aside>
+
+      <section class="board-wrap">
+        <div class="board-frame">
+          <canvas id="game" width="300" height="600" aria-label="Tablero de Tetris"></canvas>
+          <div id="overlay" class="overlay">
+            <div class="overlay-box"><div class="overlay-pickaxe">⚒</div><h2 id="overlayTitle">¡A construir!</h2><p id="overlayText">Completa líneas y explora las dimensiones.</p><button id="startBtn" class="pixel-button">JUGAR</button></div>
+          </div>
+        </div>
+        <div class="board-footer"><span><i class="legend-block"></i> BLOQUES DEL MUNDO</span><span id="statusText">LISTO PARA JUGAR</span></div>
+      </section>
+
+      <aside class="side-panel right-panel">
+        <div class="panel-card dimension-card"><span class="eyebrow">DIMENSIÓN ACTUAL</span><div id="dimensionIcon" class="dimension-icon">🌳</div><h2 id="dimensionTitle">Overworld</h2><p id="dimensionDesc">Bosques, montañas y cuevas.</p></div>
+        <div class="panel-card stats-card"><span class="eyebrow">ESTADÍSTICAS</span><div><span>Líneas</span><b id="lines">0</b></div><div><span>Velocidad</span><b id="speed">1.0x</b></div><div><span>Bloques</span><b id="pieces">0</b></div></div>
+        <div class="panel-card hint-card"><span class="eyebrow">OBJETIVO</span><p>Completa líneas para ganar puntos. Cada 500 puntos cruzarás un portal y el mundo cambiará.</p></div>
+        <button id="pauseBtn" class="secondary-button">Ⅱ PAUSAR</button>
+        <button id="restartBtn" class="secondary-button">↻ REINICIAR</button>
+      </aside>
+    </section>
+    <div class="mobile-controls">
+      <button data-action="left">◀</button><button data-action="rotate">↻</button><button data-action="down">▼</button><button data-action="right">▶</button><button data-action="drop" class="drop-button">⤓</button>
+    </div>
+    <footer>INSPIRADO EN EL UNIVERSO DE MINECRAFT · HECHO PARA CONSTRUIR Y DIVERTIRSE</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
